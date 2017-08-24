@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using GTS.Data.Repository;
+using System;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,14 +20,29 @@ namespace GTS.TestProject.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
-        }
+            try
+            {
+                return new string[] { "value1", "value2" };
+            }
+            catch(Exception ex)
+            {
+                return new List<string> { ex.Message };
+            }
+
+}
 
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            try
+            {
+                return "value";
+            }
+            catch(Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         // POST api/values

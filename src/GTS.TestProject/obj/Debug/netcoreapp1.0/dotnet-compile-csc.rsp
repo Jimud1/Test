@@ -199,5 +199,5 @@
 -resource:"C:\GTS\GTS.TestProject\src\GTS.TestProject\obj\Debug\netcoreapp1.0\GTS.TestProjectdotnet-compile.deps.json",GTS.TestProject.deps.json
 "C:\GTS\GTS.TestProject\src\GTS.TestProject\Program.cs"
 "C:\GTS\GTS.TestProject\src\GTS.TestProject\Startup.cs"
+"C:\GTS\GTS.TestProject\src\GTS.TestProject\Controllers\StudentController.cs"
 "C:\GTS\GTS.TestProject\src\GTS.TestProject\Controllers\TestController.cs"
-"C:\GTS\GTS.TestProject\src\GTS.TestProject\Controllers\ValuesController.cs"

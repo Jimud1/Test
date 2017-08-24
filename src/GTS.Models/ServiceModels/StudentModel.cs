@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace GTS.Models.ServiceModels
+﻿namespace GTS.Models.ServiceModels
 {
     public class StudentModel
     {
