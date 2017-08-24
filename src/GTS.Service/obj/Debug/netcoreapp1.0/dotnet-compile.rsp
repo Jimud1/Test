@@ -138,6 +138,9 @@
 --reference:C:\Users\james.hood\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
 --reference:C:\GTS\GTS.TestProject\src\GTS.Data\bin\Debug\netcoreapp1.0\GTS.Data.dll
 --reference:C:\GTS\GTS.TestProject\src\GTS.Models\bin\Debug\netcoreapp1.0\GTS.Models.dll
+C:\GTS\GTS.TestProject\src\GTS.Service\IServiceBase.cs
 C:\GTS\GTS.TestProject\src\GTS.Service\Properties\AssemblyInfo.cs
+C:\GTS\GTS.TestProject\src\GTS.Service\Student\IStudentService.cs
+C:\GTS\GTS.TestProject\src\GTS.Service\Student\StudentService.cs
 C:\GTS\GTS.TestProject\src\GTS.Service\Test\ITestService.cs
 C:\GTS\GTS.TestProject\src\GTS.Service\Test\TestService.cs
