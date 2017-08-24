@@ -27,7 +27,8 @@ namespace GTS.TestProject.Controllers
             {
                 var model = new TestModel
                 {
-                    Name = $"{i}"
+                    Name = $"Test {i}",
+                    Description = $"Information is always good {i + 1}"
                 };
                 modelList.Add(model);
             }

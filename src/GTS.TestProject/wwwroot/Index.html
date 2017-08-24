@@ -8,7 +8,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
+
 <body ng-app="myApp" ng-controller="myCtrl">
+
     <div class="jumbotron text-center">
         <h1>Welcome to the Webpage</h1>
         <p>Basic welcome message for website!</p>
@@ -16,22 +18,20 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <h3>{{product}}</h3>
-                <p>Lorem ipsum dolor..</p>
+            <div class="col-sm-3 border">
+                <h3>{{product1}}</h3>
+                <p>{{description1}}</p>
             </div>
-            <div class="col-sm-4">
-                <h3>Column 2</h3>
-                <p>Lorem ipsum dolor..</p>
+            <div class="col-sm-5 border">
+                <h3>{{product2}}</h3>
+                <p>{{description2}}</p>
             </div>
-            <div class="col-sm-4">
-                <h3>Column 3</h3>
-                <p>Lorem ipsum dolor..</p>
+            <div class="col-sm-3 border">
+                <h3>{{product3}}</h3>
+                <p>{{description3}}</p>
             </div>
         </div>
     </div>
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -40,11 +40,22 @@
     <script>
         var app = angular.module('myApp', []);
         app.controller('myCtrl', function ($scope, $http) {
-            $http.get("api/test/1")
+            $http.get("api/test")
             .then(function (response) {
-                $scope.product = response.data;
+                initPage(response.data);
             });
+
+            function initPage(data) {
+                $scope.product1 = data[0].name;
+                $scope.product2 = data[1].name;
+                $scope.product3 = data[2].name;
+                $scope.description1 = data[0].description;
+                $scope.description2 = data[1].description;
+                $scope.description3 = data[2].description;
+            }
         });
+
+
     </script>
 </body>
 </html>
