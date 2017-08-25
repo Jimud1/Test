@@ -1,14 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GTS.Data.Entities;
 using GTS.Data.Repository;
+using GTS.Models.ServiceModels;
 
 namespace GTS.Service.Student
 {
     public class StudentService : IStudentService
     {
-        private readonly IRepository _studentRepository;
+        private readonly IStudentRepository _studentRepository;
 
-        public StudentService(IRepository studentRepository)
+        public StudentService(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
         }
@@ -17,24 +20,75 @@ namespace GTS.Service.Student
             _studentRepository.Delete(id);
         }
 
-        public IEnumerable<IBaseEntity> Get()
+        public IEnumerable<StudentModel> Get()
         {
-            return _studentRepository.Get();
+            var students = _studentRepository.Get().Select(EntityToModel).ToList();
+            return students;
         }
 
-        public IBaseEntity Get(long id)
+        public StudentModel Get(long id)
         {
-            return _studentRepository.Get(id);
+            var student = EntityToModel(_studentRepository.Get(id));
+            return student;
         }
 
         public void Save(IBaseEntity student)
         {
-            _studentRepository.Save(student);
+            throw new NotImplementedException();
+        }
+
+        public void Save(StudentModel student)
+        {
+            var entity = ModelToEntity(student);
+            _studentRepository.Save(entity);
         }
 
         public void Update(IBaseEntity student)
         {
-            _studentRepository.Update(student);
+            throw new NotImplementedException();
+        }
+
+        public void Update(StudentModel student)
+        {
+            var entity = ModelToEntity(student);
+            _studentRepository.Update(entity);
+        }
+
+        private StudentModel EntityToModel(StudentEntity entity)
+        {
+            var model = new StudentModel
+            {
+                Id = entity.Id,
+                FirstName = entity.FirstName,
+                LastName = entity.LastName,
+                Name = $"{entity.FirstName} {entity.LastName}",
+                Email = entity.Email,
+                EnrollmentNo = entity.EnrollmentNo
+            };
+            return model;
+        }
+
+        IEnumerable<IBaseEntity> IServiceBase.Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        IBaseEntity IServiceBase.Get(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        private StudentEntity ModelToEntity(StudentModel model)
+        {
+            var entity = new StudentEntity
+            {
+                Id = model.Id,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email,
+                EnrollmentNo = model.EnrollmentNo
+            };
+            return entity;
         }
     }
 }

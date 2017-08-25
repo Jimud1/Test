@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using GTS.Data.Repository;
 using System;
+using GTS.Service.Student;
+using GTS.Models.ServiceModels;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,23 +11,24 @@ namespace GTS.TestProject.Controllers
     [Route("api/[controller]")]
     public class StudentController : Controller
     {
-        private readonly IRepository _studentRepository;
+        private readonly IStudentService _studentService;
 
-        public StudentController(IRepository repository)
+        public StudentController(IStudentService service)
         {
-            _studentRepository = repository;
+            _studentService = service;
         }
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<StudentModel> Get()
         {
             try
             {
-                return new string[] { "value1", "value2" };
+                var students = _studentService.Get();
+                return students;
             }
             catch(Exception ex)
             {
-                return new List<string> { ex.Message };
+                throw ex;
             }
 
 }

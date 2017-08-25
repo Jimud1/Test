@@ -4,8 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using GTS.Service.Test;
+using GTS.Service.Student;
 using System.Collections.Generic;
 using GTS.Data.Repository;
+using GTS.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace GTS.TestProject
 {
@@ -29,8 +32,10 @@ namespace GTS.TestProject
             // Add framework services.
             services.AddMvc();
             //Add IoC
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddSingleton<ITestService, TestService>();
-            services.AddScoped<IRepository, StudentRepository>();
+            services.AddSingleton<IStudentService, StudentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

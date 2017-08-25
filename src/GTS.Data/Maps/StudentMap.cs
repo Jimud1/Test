@@ -5,7 +5,7 @@ namespace GTS.Data.Maps
 {
     public class StudentMap
     {
-        public StudentMap(EntityTypeBuilder<Student> entityBuilder)
+        public StudentMap(EntityTypeBuilder<StudentEntity> entityBuilder)
         {
             entityBuilder.HasKey(t => t.Id);
             entityBuilder.Property(t => t.FirstName).IsRequired();

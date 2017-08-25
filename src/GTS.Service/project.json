@@ -3,7 +3,8 @@
 
   "dependencies": {
     "GTS.Models": "1.0.0-*",
-    "NETStandard.Library": "1.6.0"
+    "NETStandard.Library": "1.6.0",
+    "System.Interactive.Async": "3.0.0"
   },
 
   "frameworks": {

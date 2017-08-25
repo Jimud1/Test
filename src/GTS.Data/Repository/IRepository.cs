@@ -7,7 +7,7 @@ namespace GTS.Data.Repository
     {
         void Save(IBaseEntity student);
         IEnumerable<IBaseEntity> Get();
-        Student Get(long id);
+        StudentEntity Get(long id);
         void Delete(long id);
         void Update(IBaseEntity student);
     }

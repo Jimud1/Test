@@ -1,6 +1,6 @@
 ﻿namespace GTS.Data.Entities
 {
-    public class Student : BaseEntity
+    public class StudentEntity : BaseEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
