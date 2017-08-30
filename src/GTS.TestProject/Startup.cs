@@ -33,7 +33,7 @@ namespace GTS.TestProject
             services.AddMvc();
             //Add IoC
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IStudentRepository, StudentRepository>();
+            services.AddSingleton<IStudentRepository, StudentRepository>();
             services.AddSingleton<ITestService, TestService>();
             services.AddSingleton<IStudentService, StudentService>();
         }

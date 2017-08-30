@@ -142,9 +142,9 @@ C:\GTS\GTS.TestProject\src\GTS.Data\Entities\BaseEntity.cs
 C:\GTS\GTS.TestProject\src\GTS.Data\Entities\IBaseEntity.cs
 C:\GTS\GTS.TestProject\src\GTS.Data\Entities\StudentEntity.cs
 C:\GTS\GTS.TestProject\src\GTS.Data\Maps\StudentMap.cs
-C:\GTS\GTS.TestProject\src\GTS.Data\Migrations\20170825105723_MyFirstMigration.cs
-C:\GTS\GTS.TestProject\src\GTS.Data\Migrations\20170825105723_MyFirstMigration.Designer.cs
 C:\GTS\GTS.TestProject\src\GTS.Data\Migrations\ApplicationContextModelSnapshot.cs
+C:\GTS\GTS.TestProject\src\GTS.Data\Migrations\MyFirstMigration.cs
+C:\GTS\GTS.TestProject\src\GTS.Data\Migrations\MyFirstMigration.Designer.cs
 C:\GTS\GTS.TestProject\src\GTS.Data\Properties\AssemblyInfo.cs
 C:\GTS\GTS.TestProject\src\GTS.Data\Repository\IRepository.cs
 C:\GTS\GTS.TestProject\src\GTS.Data\Repository\IStudentRepository.cs

@@ -10,8 +10,8 @@ namespace GTS.Data.Repository
     public class StudentRepository : IStudentRepository
     {
 
-        private ApplicationContext context;
-        private DbSet<StudentEntity> studentEntity;
+        private ApplicationContext _context;
+        private DbSet<StudentEntity> _studentEntity;
 
         /// <summary>
         /// 
@@ -19,25 +19,26 @@ namespace GTS.Data.Repository
         /// <param name="context"></param>
         public StudentRepository(ApplicationContext context)
         {
-            this.context = context;
-            studentEntity = context.Set<StudentEntity>();
+            _context = context;
+            _studentEntity = context.Set<StudentEntity>();
         }
 
         public void Delete(long id)
         {
             StudentEntity student = Get(id);
-            studentEntity.Remove(student);
-            context.SaveChanges();
+            _studentEntity.Remove(student);
+            _context.SaveChanges();
         }
 
         public IEnumerable<StudentEntity> Get()
         {
-            return studentEntity.AsEnumerable();
+            var entities = _studentEntity.AsEnumerable();
+            return entities;
         }
 
         public StudentEntity Get(long id)
         {
-            return studentEntity.SingleOrDefault(s => s.Id == id);
+            return _studentEntity.SingleOrDefault(s => s.Id == id);
         }
 
         public void Save(IBaseEntity student)
@@ -47,8 +48,8 @@ namespace GTS.Data.Repository
 
         public void Save(StudentEntity student)
         {
-            context.Entry(student).State = EntityState.Added;
-            context.SaveChanges();
+            _context.Entry(student).State = EntityState.Added;
+            _context.SaveChanges();
         }
 
         public void Update(IBaseEntity student)
@@ -58,7 +59,7 @@ namespace GTS.Data.Repository
 
         public void Update(StudentEntity student)
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         IEnumerable<IBaseEntity> IRepository.Get()
